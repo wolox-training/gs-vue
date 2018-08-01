@@ -5,7 +5,6 @@
   display: block;
   font-family: 'Roboto', sans-serif;
   font-size: $text-big;
-  height: $title-decoration-height;
   line-height: $title-decoration-height;
-  padding-left: $title-decoration-width - 20px;
+  padding-left: calc(#{$title-decoration-width} - 20px);
 }
