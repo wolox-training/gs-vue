@@ -14,15 +14,11 @@ $tech-description-margin: 15px;
   border-radius: 8px;
   position: relative;
   display: inline-flex;
-  top: 10px;
-  left:10px;
   padding: $tech-card-padding;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 
   .tech-title {
-    display: block;
     font-size: $text-medium;
     font-family: 'Roboto', sans-serif;
     text-align: center;
@@ -30,19 +26,16 @@ $tech-description-margin: 15px;
   
   .tech-release {
     font-weight: bold;
-    display: block;
     text-align: center;
   }
   
   .tech-logo {
     width: $tech-logo-size;
-    display: block;
     text-align: center;
   }
 
   .tech-description {
     font-family: 'Roboto', sans-serif;
-    display: block;
     text-align: center;
   }
   
@@ -59,8 +52,7 @@ $tech-description-margin: 15px;
   }
 
   &::before {
-    content: " ";
-    display: inline-block;
+    content: "";
     position: absolute;
     top: -10px;
     left: -10px;
