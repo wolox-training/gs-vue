@@ -60,5 +60,13 @@ $tech-description-margin: 15px;
     right: 10px;
     border: 1px solid $green;
     border-radius: 8px;
+    transition: 0.5s;
+  }
+
+  &:hover::before {
+    top: 10px;
+    left: 10px;
+    bottom: -10px;
+    right: -10px;
   }
 }
