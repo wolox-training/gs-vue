@@ -1,0 +1,32 @@
+.footer {
+  align-items: center;
+  background-color: #00ADEE;
+  bottom: 0px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 35px;
+  padding-right: 15px;
+  padding-bottom: 20px;
+  padding-left: 15px;
+  width: 100%;
+  
+  .slogan {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: $text-big;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+
+  .copyright {
+    align-self: flex-end;
+    color: white;
+    font-size: $text-small;
+  }
+
+  .logo {
+    margin-bottom: 15px;
+  }
+}
