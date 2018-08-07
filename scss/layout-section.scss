@@ -8,11 +8,26 @@
   align-self: center;
 }
 
-
 .tools-section {
   margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 0 30px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .card-container {
+    display: grid;
+    grid-template-areas: 'card1'
+                         'card2'
+                         'card3'
+                         'card4'
+                         'card5';
+    grid-template-rows: repeat(5, min-content);
+    grid-template-columns: auto;
+  }
+  .tools-section {
+    align-items: center;
+  }
 }

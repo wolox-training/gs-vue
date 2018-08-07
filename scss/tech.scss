@@ -61,3 +61,12 @@ $tech-description-margin: 15px;
     }
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  .tech-card:first-child {
+    border: none;
+  }
+  .tech-card:not(:last-child) {
+    border-bottom: 2px solid $green;
+  }
+}
