@@ -1,7 +1,19 @@
 .card-container {
+  display: grid;
+  grid-template-areas: 'card1 card2 card3'
+                       'card1 card4 card5';
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: min-content min-content min-content; 
+  padding: 0 45px;
+  align-self: center;
+}
+
+
+.tool-section {
+  margin-bottom: 30px;
   display: flex;
-  flex-wrap: wrap;
-  padding: 0 45px;  
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .tools-section {
