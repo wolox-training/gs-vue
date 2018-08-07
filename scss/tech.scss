@@ -9,7 +9,7 @@ $tech-description-margin: 15px;
 
 .tech-card {
   background-color: $green;
-  height: $tech-card-height;
+  height: auto;
   width: $tech-card-width;
   border-radius: 8px;
   position: relative;
@@ -17,6 +17,7 @@ $tech-description-margin: 15px;
   padding: $tech-card-padding;
   flex-direction: column;
   align-items: center;
+  margin: 30px;
 
   .tech-title {
     font-size: $text-medium;
@@ -30,6 +31,7 @@ $tech-description-margin: 15px;
   
   .tech-logo {
     width: $tech-logo-size;
+    height: $tech-logo-size;
     text-align: center;
   }
 
