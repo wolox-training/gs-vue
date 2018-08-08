@@ -55,19 +55,9 @@ $tech-description-margin: 15px;
     border-right: 2px solid $green;
   }
 
-  &:nth-child(2) {
-    grid-area: card2;
-  }
-
-  &:nth-child(3) {
-    grid-area: card3;
-  }
-
-  &:nth-child(4) {
-    grid-area: card4;
-  }
-
-  &:nth-child(5) {
-    grid-area: card5;
+  @for $i from 2 through 5 {
+    &:nth-child(#{$i}) {
+      grid-area: card#{$i};
+    }
   }
 }
