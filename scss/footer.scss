@@ -28,3 +28,20 @@ $footer-text-color: $white;
     margin-bottom: 15px;
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  .footer {
+    .slogan {
+      font-size: calc(0.8*#{$text-big});
+    }
+
+    .copyright {
+      align-self: auto;
+    }
+
+    .logo {
+      margin-bottom: 40px;
+      width: 70%;
+    }
+  }
+}

@@ -25,3 +25,11 @@ $nav-shadow-color: rgba(0, 0, 0, 0.3);
     font-size: $text-big;
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  .navbar {
+    .title {
+      display: none;
+    }
+  }
+}
