@@ -1,10 +1,10 @@
 import { isArray } from './utils';
 
-export function min(arg) {
-  if (!isArray(arg)) {
-    return arg;
+export function min(first, ...rest) {
+  if (isArray(first)) {
+    return Math.min(...first);
   }
-  return Math.min(...arg);
+  return Math.min(first, ...rest);
 }
 
 export function copy() {
