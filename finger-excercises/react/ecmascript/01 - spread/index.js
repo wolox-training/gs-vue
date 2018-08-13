@@ -1,6 +1,9 @@
 import { isArray } from './utils';
 
 export function min(first, ...rest) {
+  if (first === undefined) {
+    return undefined;
+  }
   if (isArray(first)) {
     return Math.min(...first);
   }
