@@ -16,3 +16,7 @@ export function copy(arg) {
   }
   return { ...arg };
 }
+
+export function reverseMerge(arr1, arr2) {
+  return [...arr2, ...arr1];
+}

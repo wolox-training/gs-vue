@@ -6,4 +6,8 @@ export function isArray(aPossibleArray) {
   return aPossibleArray.constructor === Array;
 }
 
+export function reverseMerge() {
+
+}
+
 export default isArray;
