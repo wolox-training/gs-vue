@@ -11,5 +11,8 @@ export function min(first, ...rest) {
 }
 
 export function copy(arg) {
+  if (isArray(arg)) {
+    return [...arg];
+  }
   return { ...arg };
 }
