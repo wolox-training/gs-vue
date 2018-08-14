@@ -66,6 +66,7 @@ $tech-description-margin: 15px;
   .tech-card:first-child {
     border: none;
   }
+  
   .tech-card:not(:last-child) {
     border-bottom: 2px solid $green;
   }
