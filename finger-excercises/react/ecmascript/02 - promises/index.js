@@ -16,11 +16,13 @@ export function delay(time) {
   return delayPromise;
 }
 
-export function asyncDelay(time) {
-  const startTime = Date.now();
-  let endTime = Date.now();
-  while ((startTime + time) >= endTime) {
-    endTime = Date.now();
-  }
-  return (endTime - startTime);
+export async function asyncDelay(time) {
+  return new Promise(resolve => {
+    const startTime = Date.now();
+    let endTime = Date.now();
+    while ((startTime + time) >= endTime) {
+      endTime = Date.now();
+    }
+    resolve(endTime - startTime);
+  });
 }
