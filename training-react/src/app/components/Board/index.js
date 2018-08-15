@@ -5,7 +5,10 @@ import Square from '~components/Square';
 import style from './styles.scss';
 
 class Board extends Component {
-  state = { squares: Array(9).fill(null) };
+  state = {
+    squares: Array(9).fill(null),
+    xIsNext: true
+  };
   // eslint-disable-next-line
   renderSquare(i) {
     return <Square value={this.state.squares[i]} onClick={() => this.handleClick(i)} />;
@@ -13,12 +16,12 @@ class Board extends Component {
 
   handleClick(i) {
     const squares = this.state.squares.slice();
-    squares[i] = 'X';
-    this.setState({ squares });
+    squares[i] = this.state.xIsNext ? 'X' : 'O';
+    this.setState({ squares, xIsNext: !this.state.xIsNext });
   }
 
   render() {
-    const status = 'Next player: X';
+    const status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
 
     return (
       <Fragment>
