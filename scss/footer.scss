@@ -26,5 +26,23 @@ $footer-text-color: $white;
 
   .logo {
     margin-bottom: 15px;
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .footer {
+    .slogan {
+      font-size: $text-sm-big;
+    }
+
+    .copyright {
+      align-self: auto;
+    }
+
+    .logo {
+      margin-bottom: 40px;
+    }
   }
 }
