@@ -10,10 +10,6 @@ class Board extends Component {
     squares: Array(9).fill(null),
     xIsNext: true
   };
-  // eslint-disable-next-line
-  renderSquare(i) {
-    return <Square value={this.state.squares[i]} onClick={() => this.handleClick(i)} />;
-  }
 
   handleClick(i) {
     const squares = this.state.squares.slice();
@@ -37,19 +33,19 @@ class Board extends Component {
       <Fragment>
         <div className={style.status}>{status}</div>
         <div className={style.boardRow}>
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
+          <Square value={this.state.squares[0]} onClick={() => this.handleClick(0)} />
+          <Square value={this.state.squares[1]} onClick={() => this.handleClick(1)} />
+          <Square value={this.state.squares[2]} onClick={() => this.handleClick(2)} />
         </div>
         <div className={style.boardRow}>
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
+          <Square value={this.state.squares[3]} onClick={() => this.handleClick(3)} />
+          <Square value={this.state.squares[4]} onClick={() => this.handleClick(4)} />
+          <Square value={this.state.squares[5]} onClick={() => this.handleClick(5)} />
         </div>
         <div className={style.boardRow}>
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
+          <Square value={this.state.squares[6]} onClick={() => this.handleClick(6)} />
+          <Square value={this.state.squares[7]} onClick={() => this.handleClick(7)} />
+          <Square value={this.state.squares[8]} onClick={() => this.handleClick(8)} />
         </div>
       </Fragment>
     );
