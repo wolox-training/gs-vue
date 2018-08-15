@@ -8,4 +8,38 @@
   width: 200px;
   background-color: rgba(0, 0, 0, 0.3);
   padding: 40px;
+  padding-bottom: 0;
+}
+
+.gameStatus {
+  margin-bottom: 15px;
+}
+
+.stepButton {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid white;
+    color: white;
+    padding: 5px;
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);;
+    }
+}
+
+.currentStepButton {
+    composes: stepButton;
+    background-color: rgba(0, 255, 149, 0.1);
+    &:hover {
+      background-color: rgba(0, 255, 149, 0.2);;
+    }
+}
+
+.stepItem {
+  list-style: none;
+  margin-bottom: 5px;
+}
+
+.stepList {
+  padding: 0;
+  margin: 0;
 }
