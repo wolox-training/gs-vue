@@ -1,7 +1,13 @@
-.boardRow:after {
-  clear: both;
-  content: "";
-  display: table;
+.board {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 300px;
+}
+
+.boardAndStatus {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 40px;
 }
 
 .status {

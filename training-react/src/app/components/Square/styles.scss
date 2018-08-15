@@ -1,18 +1,44 @@
-.square {
-  background: #fff;
-  border: 1px solid #999;
+.common {
+  background-color: transparent;
   float: left;
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 80px;
   line-height: 34px;
-  height: 34px;
+  height: 100px;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 34px;
+  width: 100px;
+  color: white;
 }
 
-.square:focus {
+.common:focus {
   outline: none;
+}
+
+/**
+
+0 1 2
+3 4 5
+6 7 8
+
+*/
+
+@for $i from 0 through 8 {
+  .border#{$i} {
+    composes: common;
+    border: none;
+    @if $i == 0 or $i == 1 or $i == 2 or $i == 3 or $i == 4 or $i == 5 {
+      border-bottom: 1px dashed white;
+    }
+    @if $i == 6 or $i == 7 or $i == 8 or $i == 3 or $i == 4 or $i == 5 {
+      border-top: 1px dashed white;
+    }
+    @if $i == 1 or $i == 2 or $i == 4 or $i == 5 or $i == 7 or $i == 8 {
+      border-left: 1px dashed white;
+    }
+    @if $i == 1 or $i == 0 or $i == 4 or $i == 3 or $i == 7 or $i == 6 {
+      border-right: 1px dashed white;
+    }
+  }
 }

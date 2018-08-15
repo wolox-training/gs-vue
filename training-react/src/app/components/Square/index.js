@@ -5,14 +5,16 @@ import style from './styles.scss';
 
 function Square(props) {
   return (
-    <button className={style.square} onClick={props.onClick}>
+    <button className={style[`border${props.pos}`]} onClick={props.onClick}>
       {props.value}
     </button>
   );
 }
 
 Square.propTypes = {
-  value: PropTypes.number,
+  // eslint-disable-next-line
+  pos: PropTypes.number,
+  value: PropTypes.string,
   onClick: PropTypes.func
 };
 

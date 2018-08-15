@@ -8,9 +8,7 @@ class Game extends Component {
   render() {
     return (
       <div className={style.game}>
-        <div>
-          <Board />
-        </div>
+        <Board />
         <div className={style.gameInfo}>
           <div>{/* status */}</div>
           <ol>{/* TODO */}</ol>

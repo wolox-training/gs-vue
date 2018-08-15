@@ -1,6 +1,15 @@
+@import 'variables/colors.scss';
+
+$body-bg-color: $dove-gray;
+$body-text-color: $white;
+
 body {
   font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 20px;
+  margin: 0px;
+  padding: 0px;
+  background-color: $body-bg-color;
+  color: $body-text-color;
+  font-size: 20px;
 }
 
 ol, ul {

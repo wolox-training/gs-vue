@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 
 import Square from '~components/Square';
 
@@ -29,25 +29,17 @@ class Board extends Component {
       status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
     }
 
+    const cells = Array(9);
+
+    for (let i = 0; i < cells.length; i += 1) {
+      cells[i] = <Square key={i} pos={i} value={this.state.squares[i]} onClick={() => this.handleClick(i)} />;
+    }
+
     return (
-      <Fragment>
+      <div className={style.boardAndStatus}>
         <div className={style.status}>{status}</div>
-        <div className={style.boardRow}>
-          <Square value={this.state.squares[0]} onClick={() => this.handleClick(0)} />
-          <Square value={this.state.squares[1]} onClick={() => this.handleClick(1)} />
-          <Square value={this.state.squares[2]} onClick={() => this.handleClick(2)} />
-        </div>
-        <div className={style.boardRow}>
-          <Square value={this.state.squares[3]} onClick={() => this.handleClick(3)} />
-          <Square value={this.state.squares[4]} onClick={() => this.handleClick(4)} />
-          <Square value={this.state.squares[5]} onClick={() => this.handleClick(5)} />
-        </div>
-        <div className={style.boardRow}>
-          <Square value={this.state.squares[6]} onClick={() => this.handleClick(6)} />
-          <Square value={this.state.squares[7]} onClick={() => this.handleClick(7)} />
-          <Square value={this.state.squares[8]} onClick={() => this.handleClick(8)} />
-        </div>
-      </Fragment>
+        <div className={style.board}>{cells}</div>
+      </div>
     );
   }
 }
