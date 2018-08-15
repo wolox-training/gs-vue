@@ -1,0 +1,27 @@
+{
+  "name": "ecmascript",
+  "version": "1.0.0",
+  "description": "Ecmascript exercises for React Training",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest ."
+  },
+  "author": "Wolox",
+  "license": "MIT",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^22.4.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.4.3",
+    "npm": "^5.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.10.0"
+  }
+}
