@@ -5,9 +5,16 @@ import Square from '~components/Square';
 import style from './styles.scss';
 
 class Board extends Component {
+  state = { squares: Array(9).fill(null) };
   // eslint-disable-next-line
   renderSquare(i) {
-    return <Square value={i} />;
+    return <Square value={this.state.squares[i]} onClick={() => this.handleClick(i)} />;
+  }
+
+  handleClick(i) {
+    const squares = this.state.squares.slice();
+    squares[i] = 'X';
+    this.setState({ squares });
   }
 
   render() {
