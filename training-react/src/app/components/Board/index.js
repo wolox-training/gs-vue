@@ -7,7 +7,7 @@ import style from './styles.scss';
 class Board extends Component {
   // eslint-disable-next-line
   renderSquare(i) {
-    return <Square />;
+    return <Square value={i} />;
   }
 
   render() {
