@@ -6,7 +6,12 @@ function calculateWinner(squares) {
       return squares[a];
     }
   }
-  return null;
+  for (let i = 0; i < squares.length; i += 1) {
+    if (!squares[i]) {
+      return null;
+    }
+  }
+  return 'Tie!';
 }
 
 export default calculateWinner;
