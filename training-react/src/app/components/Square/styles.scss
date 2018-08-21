@@ -4,8 +4,7 @@
   font-size: 80px;
   line-height: 34px;
   height: 120px;
-  margin-right: -1px;
-  margin-top: -1px;
+  margin: 0px;
   padding: 0;
   text-align: center;
   width: 120px;
@@ -26,16 +25,10 @@
 
 @for $i from 0 through 8 {
   .border#{$i} {
-    composes: common;
+    @extend .common;
     border: none;
     @if $i == 0 or $i == 1 or $i == 2 or $i == 3 or $i == 4 or $i == 5 {
       border-bottom: 1px dashed white;
-    }
-    @if $i == 6 or $i == 7 or $i == 8 or $i == 3 or $i == 4 or $i == 5 {
-      border-top: 1px dashed white;
-    }
-    @if $i == 1 or $i == 2 or $i == 4 or $i == 5 or $i == 7 or $i == 8 {
-      border-left: 1px dashed white;
     }
     @if $i == 1 or $i == 0 or $i == 4 or $i == 3 or $i == 7 or $i == 6 {
       border-right: 1px dashed white;

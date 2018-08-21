@@ -1,9 +1,11 @@
+@import 'variables/colors';
+
 .board {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 360px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: $black-alpha03;
   padding: 40px;
 }
 

@@ -1,17 +1,16 @@
-function calculateWinner(squares) {
+const calculateWinner = squares => {
   const lines = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
-  for (let i = 0; i < lines.length; i += 1) {
-    const [a, b, c] = lines[i];
-    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
-    }
+
+  const found = lines.find(line => {
+    const [a, b, c] = line;
+    return squares[a].value && squares[a].value === squares[b].value && squares[a].value === squares[c].value;
+  });
+
+  if (found) {
+    return squares[found[0]].value;
   }
-  for (let i = 0; i < squares.length; i += 1) {
-    if (!squares[i]) {
-      return null;
-    }
-  }
-  return 'Tie!';
-}
+
+  return squares.every(square => square.value) ? 'T' : null;
+};
 
 export default calculateWinner;
