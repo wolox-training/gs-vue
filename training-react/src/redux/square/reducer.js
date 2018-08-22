@@ -1,8 +1,10 @@
-const squareReducer = (state, action) => {
+import { actions } from '../game/actions';
+
+const squareReducer = (state, action, xIsNext) => {
   switch (action.type) {
-    case 'MAKE_MOVE':
+    case actions.MOVE_DONE:
       if (state.id === action.squareId && !state.value) {
-        return { ...state, value: action.player };
+        return { ...state, value: xIsNext ? 'X' : 'O' };
       }
       return state;
     default:

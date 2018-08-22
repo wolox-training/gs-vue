@@ -1,64 +1,36 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Board from '~components/Board';
 
+import { actionCreators } from '../../../redux/game/actions';
+
 import style from './styles.scss';
-import calculateWinner, { GameOutcome } from './utils.js';
+import { GameOutcome } from './utils.js';
 
 class Game extends Component {
-  state = {
-    history: [
-      {
-        squares: Array.from(Array(9)).map((_elem, index) => ({ id: index, value: null })),
-        id: 0
-      }
-    ],
-    xIsNext: true,
-    status: null,
-    currentStep: 0
-  };
-
   handleClick = i => {
-    const history = this.state.history.slice(0, this.state.currentStep + 1);
-    const current = history[history.length - 1];
-    const squares = [...current.squares];
-    const currentBoardId = current.id;
-    const status = this.state.status;
-    if (status || squares[i].value) {
-      return;
-    }
-    squares[i] = { ...squares[i], value: this.state.xIsNext ? 'X' : 'O' };
-    const winner = calculateWinner(squares);
-    this.setState({
-      history: history.concat([{ squares, id: currentBoardId + 1 }]),
-      xIsNext: !this.state.xIsNext,
-      status: winner,
-      currentStep: history.length
-    });
+    this.props.dispatch(actionCreators.moveDone(i));
   };
 
   jumpTo = step => {
-    this.setState({
-      currentStep: step,
-      xIsNext: step % 2 === 0,
-      status: calculateWinner(this.state.history[step].squares)
-    });
+    this.props.dispatch(actionCreators.timeTravel(step));
   };
 
   statusText = () => {
-    const status = this.state.status;
+    const status = this.props.status;
     if (status) {
       return status === GameOutcome.TIE ? 'Tie!' : `Winner: ${status}`;
     }
-    return `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
+    return `Next player: ${this.props.xIsNext ? 'X' : 'O'}`;
   };
 
   stepButtonText = step => (step ? `Go to move #${step}` : 'Go to game start');
-  stepButtonClass = step => (this.state.currentStep === step ? style.currentStepButton : style.stepButton);
+  stepButtonClass = step => (this.props.currentStep === step ? style.currentStepButton : style.stepButton);
 
   render() {
-    const history = this.state.history;
-    const current = history[this.state.currentStep];
+    const history = this.props.history;
+    const current = history[this.props.currentStep];
 
     return (
       <div className={style.game}>
@@ -80,4 +52,18 @@ class Game extends Component {
   }
 }
 
-export default Game;
+Game.propTypes = {
+  history: Array,
+  xIsNext: Boolean,
+  currentStep: Number,
+  status: String
+};
+
+const mapStateToProps = state => ({
+  history: state.history,
+  xIsNext: state.xIsNext,
+  currentStep: state.currentStep,
+  status: state.status
+});
+
+export default connect(mapStateToProps)(Game);

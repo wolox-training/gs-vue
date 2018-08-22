@@ -1,13 +1,19 @@
-export function moveDone(squareId) {
-  return {
-    type: 'MOVE_DONE',
-    squareId
-  };
-}
+export const actions = {
+  MOVE_DONE: '@@game/MOVE_DONE',
+  TIME_TRAVEL: '@@game/TIME_TRAVEL'
+};
 
-export function timeTravel(stepId) {
-  return {
-    type: 'TIME_TRAVEL',
-    stepId
-  };
-}
+export const actionCreators = {
+  moveDone(squareId) {
+    return {
+      type: actions.MOVE_DONE,
+      squareId
+    };
+  },
+  timeTravel(stepId) {
+    return {
+      type: actions.TIME_TRAVEL,
+      stepId
+    };
+  }
+};
