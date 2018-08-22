@@ -6,16 +6,13 @@ import Square from '~components/Square';
 import style from './styles.scss';
 
 class Board extends Component {
+  handleClick = this.props.onClick;
+
   render() {
     return (
       <div className={style.board}>
         {this.props.squares.map(square => (
-          <Square
-            key={square.id}
-            pos={square.id}
-            value={square.value}
-            onClick={() => this.props.onClick(square.id)}
-          />
+          <Square key={square.id} pos={square.id} value={square.value} onClick={this.handleClick} />
         ))}
       </div>
     );
@@ -23,8 +20,8 @@ class Board extends Component {
 }
 
 Board.propTypes = {
-  squares: PropTypes.arrayOf(Object),
-  onClick: PropTypes.func
+  squares: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.number, value: PropTypes.string })).isRequired,
+  onClick: PropTypes.func.isRequired
 };
 
 export default Board;

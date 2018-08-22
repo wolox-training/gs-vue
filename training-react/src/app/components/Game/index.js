@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Board from '~components/Board';
 
 import style from './styles.scss';
-import calculateWinner from './utils.js';
+import calculateWinner, { GameOutcome } from './utils.js';
 
 class Game extends Component {
   state = {
@@ -21,13 +21,13 @@ class Game extends Component {
   handleClick = i => {
     const history = this.state.history.slice(0, this.state.currentStep + 1);
     const current = history[history.length - 1];
-    const squares = current.squares.map(elem => ({ ...elem }));
+    const squares = [...current.squares];
     const currentBoardId = current.id;
     const status = this.state.status;
     if (status || squares[i].value) {
       return;
     }
-    squares[i].value = this.state.xIsNext ? 'X' : 'O';
+    squares[i] = { ...squares[i], value: this.state.xIsNext ? 'X' : 'O' };
     const winner = calculateWinner(squares);
     this.setState({
       history: history.concat([{ squares, id: currentBoardId + 1 }]),
@@ -48,7 +48,7 @@ class Game extends Component {
   statusText = () => {
     const status = this.state.status;
     if (status) {
-      return status === 'T' ? 'Tie!' : `Winner: ${status}`;
+      return status === GameOutcome.TIE ? 'Tie!' : `Winner: ${status}`;
     }
     return `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
   };
