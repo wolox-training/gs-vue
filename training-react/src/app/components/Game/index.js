@@ -62,7 +62,7 @@ class Game extends Component {
 
     return (
       <div className={style.game}>
-        <Board squares={current.squares} onClick={i => this.handleClick(i)} />
+        <Board squares={current.squares} onClick={this.handleClick} />
         <div className={style.gameInfo}>
           <div className={style.gameStatus}>{this.statusText()}</div>
           <ul className={style.stepList}>
