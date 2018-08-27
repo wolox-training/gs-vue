@@ -1,0 +1,19 @@
+@import 'variables/colors.scss';
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+$body-bg-color: $dove-gray;
+$body-text-color: $white;
+
+body {
+  font: 14px 'Roboto', sans-serif;
+  margin: 0px;
+  padding: 0px;
+  background-color: $body-bg-color;
+  color: $body-text-color;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}

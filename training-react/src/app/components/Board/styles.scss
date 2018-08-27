@@ -1,0 +1,14 @@
+@import 'variables/colors';
+
+.board {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 360px;
+  background-color: $black-alpha03;
+  padding: 40px;
+}
+
+.status {
+  margin-bottom: 10px;
+}

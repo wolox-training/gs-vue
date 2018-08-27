@@ -1,0 +1,48 @@
+@import 'variables/colors';
+
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.gameInfo {
+  margin-left: 20px;
+  width: 200px;
+  background-color: $black-alpha03;
+  padding: 40px;
+  padding-bottom: 0;
+}
+
+.gameStatus {
+  margin-bottom: 15px;
+}
+
+.stepButton {
+  background-color: $white-alpha01;
+  border: 1px solid white;
+  color: white;
+  padding: 5px;
+  
+  &:hover {
+    background-color: $white-alpha02;
+  }
+}
+
+.currentStepButton {
+  @extend .stepButton;
+  background-color: $spring-green-alpha01;
+
+  &:hover {
+    background-color: $spring-green-alpha02;
+  }
+}
+
+.stepItem {
+  list-style: none;
+  margin-bottom: 5px;
+}
+
+.stepList {
+  padding: 0;
+  margin: 0;
+}
