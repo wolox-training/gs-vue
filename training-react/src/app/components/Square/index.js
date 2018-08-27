@@ -5,18 +5,19 @@ import style from './styles.scss';
 
 function Square(props) {
   const handleClick = () => {
-    props.onClick(props.pos);
+    props.onClick(props.id);
   };
   return (
-    <button className={style[`border${props.pos}`]} onClick={handleClick}>
-      {props.value}
+    <button className={style[`border${props.id}`]} onClick={!props.value ? handleClick : null}>
+      {props.visible ? props.value : ''}
     </button>
   );
 }
 
 Square.propTypes = {
-  pos: PropTypes.number,
+  id: PropTypes.number,
   value: PropTypes.string,
+  visible: PropTypes.bool,
   onClick: PropTypes.func
 };
 

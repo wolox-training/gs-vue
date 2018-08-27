@@ -1,46 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Board from '~components/Board';
 
-import { actionCreators } from '../../../redux/game/actions';
+import { actionCreators as GameActions } from '~redux/Game/actions';
 
 import style from './styles.scss';
 import { GameOutcome } from './utils.js';
 
 class Game extends Component {
-  handleClick = i => {
-    this.props.dispatch(actionCreators.moveDone(i));
-  };
-
-  jumpTo = step => {
-    this.props.dispatch(actionCreators.timeTravel(step));
-  };
-
   statusText = () => {
     const status = this.props.status;
     if (status) {
       return status === GameOutcome.TIE ? 'Tie!' : `Winner: ${status}`;
     }
-    return `Next player: ${this.props.xIsNext ? 'X' : 'O'}`;
+    return `Next player: ${this.props.currentStep % 2 ? 'O' : 'X'}`;
   };
 
   stepButtonText = step => (step ? `Go to move #${step}` : 'Go to game start');
   stepButtonClass = step => (this.props.currentStep === step ? style.currentStepButton : style.stepButton);
 
   render() {
-    const history = this.props.history;
-    const current = history[this.props.currentStep];
-
     return (
       <div className={style.game}>
-        <Board squares={current.squares} onClick={this.handleClick} />
+        <Board currentStep={this.props.currentStep} lastStep={this.props.lastStep} />
         <div className={style.gameInfo}>
           <div className={style.gameStatus}>{this.statusText()}</div>
           <ul className={style.stepList}>
-            {history.map((elem, index) => (
+            {this.props.steps.map((elem, index) => (
               <li className={style.stepItem} key={elem.id}>
-                <button className={this.stepButtonClass(index)} onClick={() => this.jumpTo(index)}>
+                <button className={this.stepButtonClass(index)} onClick={() => this.props.timeTravel(index)}>
                   {this.stepButtonText(index)}
                 </button>
               </li>
@@ -53,17 +43,27 @@ class Game extends Component {
 }
 
 Game.propTypes = {
-  history: Array,
-  xIsNext: Boolean,
-  currentStep: Number,
-  status: String
+  steps: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string })),
+  currentStep: PropTypes.number,
+  lastStep: PropTypes.number,
+  status: PropTypes.string,
+  timeTravel: PropTypes.func
 };
 
 const mapStateToProps = state => ({
-  history: state.history,
-  xIsNext: state.xIsNext,
-  currentStep: state.currentStep,
-  status: state.status
+  steps: Array.from(Array(state.game.lastStep + 1)).map((_elem, index) => ({ id: index })),
+  currentStep: state.game.currentStep,
+  lastStep: state.game.lastStep,
+  status: state.game.status
 });
 
-export default connect(mapStateToProps)(Game);
+const mapDispatchToProps = dispatch => ({
+  timeTravel: step => {
+    dispatch(GameActions.timeTravel(step));
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Game);
