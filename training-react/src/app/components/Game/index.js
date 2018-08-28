@@ -11,7 +11,7 @@ import { GameOutcome } from './utils.js';
 
 class Game extends Component {
   statusText = () => {
-    const status = this.props.status;
+    const status = this.props.currentStep === this.props.lastStep ? this.props.status : null;
     if (status) {
       return status === GameOutcome.TIE ? 'Tie!' : `Winner: ${status}`;
     }
@@ -24,7 +24,11 @@ class Game extends Component {
   render() {
     return (
       <div className={style.game}>
-        <Board currentStep={this.props.currentStep} lastStep={this.props.lastStep} />
+        <Board
+          currentStep={this.props.currentStep}
+          lastStep={this.props.lastStep}
+          gameEnded={this.props.status && this.props.currentStep === this.props.lastStep}
+        />
         <div className={style.gameInfo}>
           <div className={style.gameStatus}>{this.statusText()}</div>
           <ul className={style.stepList}>
@@ -43,7 +47,7 @@ class Game extends Component {
 }
 
 Game.propTypes = {
-  steps: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string })),
+  steps: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.number })),
   currentStep: PropTypes.number,
   lastStep: PropTypes.number,
   status: PropTypes.string,

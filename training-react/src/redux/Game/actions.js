@@ -1,7 +1,7 @@
 export const actions = {
   PERFORM_MOVE: '@@GAME/PERFORM_MOVE',
   TIME_TRAVEL: '@@GAME/TIME_TRAVEL',
-  FINISHED: '@@GAME/FINISHED'
+  END_GAME: '@@GAME/END_GAME'
 };
 
 export const actionCreators = {
@@ -18,9 +18,12 @@ export const actionCreators = {
       }
     };
   },
-  finished() {
+  endGame(winner) {
     return {
-      type: actions.FINISHED
+      type: actions.END_GAME,
+      payload: {
+        winner
+      }
     };
   }
 };

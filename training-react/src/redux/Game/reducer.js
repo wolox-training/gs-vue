@@ -9,11 +9,11 @@ const initialState = {
 const gameReducer = (state = initialState, action) => {
   switch (action.type) {
     case actions.PERFORM_MOVE:
-      return { ...state, currentStep: state.currentStep + 1, lastStep: state.currentStep + 1 };
+      return { ...state, status: null, currentStep: state.currentStep + 1, lastStep: state.currentStep + 1 };
     case actions.TIME_TRAVEL:
       return { ...state, currentStep: action.payload.step };
-    case actions.FINISHED:
-      return state;
+    case actions.END_GAME:
+      return { ...state, status: action.payload.winner };
     default:
       return state;
   }
