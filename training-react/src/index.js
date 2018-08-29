@@ -1,10 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
 import Game from '~components/Game';
 
+import store from './redux/store';
 import './scss/index.scss';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Game />, document.getElementById('root'));
+ReactDOM.render(
+  <Provider store={store}>
+    <Game />
+  </Provider>,
+  document.getElementById('root')
+);
 registerServiceWorker();
