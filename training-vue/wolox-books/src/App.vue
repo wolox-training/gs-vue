@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <header>
+      <img id="logo" alt="wolox books" src="./assets/wolox_logo.svg">
+      <span id="title">BOOKS</span>
+    </header>
+    <div id="nav" hidden>
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>|
       <router-link to="/register">Register</router-link>
@@ -11,7 +15,14 @@
 
 <style lang="scss">
 body {
-  background-color: rgb(244, 244, 244);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
 }
 
 #app {
@@ -20,6 +31,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #000;
+  background-color: rgb(244, 244, 244);
+  padding: 40px 20px 20px;
+  border-top: 4px solid rgb(71, 172, 232);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
 }
 #nav {
   padding: 30px;
@@ -34,33 +52,20 @@ body {
     }
   }
 }
-input {
-  border: 0;
-  border-radius: 10px;
-  padding: 10px;
-  font-size: 16px;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-}
-label {
-  font-weight: 700;
-  font-size: 14px;
-}
-button {
-  border: solid 2px rgb(182, 207, 93);
-  background-color: rgb(182, 207, 93);
-  color: #fff;
-  border-radius: 10px;
-  padding: 15px;
-  line-height: 14px;
-  font-size: 14px;
-  width: 400px;
-  box-sizing: border-box;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-.btn-outline {
-  background-color: transparent;
-  color: rgb(182, 207, 93);
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+
+  #logo {
+    width: 80%;
+    padding-bottom: 10px;
+  }
+  #title {
+    font-size: 14px;
+    font-weight: 700;
+  }
 }
 </style>

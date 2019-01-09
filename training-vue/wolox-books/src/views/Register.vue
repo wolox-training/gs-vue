@@ -1,23 +1,26 @@
 <template>
   <div class="container">
     <form class="register-form" @submit.prevent="onSubmit">
-      <label>First name</label>
-      <input v-model="firstName" name="first-name" type="text">
-      <label>Last name</label>
-      <input v-model="lastName" name="last-name" type="text">
-      <label>Email</label>
-      <input v-model="email" name="email" type="email">
-      <label>Password</label>
-      <input v-model="password" name="password" type="password">
-      <button>Sign up</button>
+      <WoloxInput name="first-name" label="First name" type="text" v-model="firstName"/>
+      <WoloxInput name="last-name" label="Last name" type="text" v-model="lastName"/>
+      <WoloxInput name="email" label="Email" type="email" v-model="email"/>
+      <WoloxInput name="password" label="Password" type="password" v-model="password"/>
+      <WoloxButton type="submit">Sign up</WoloxButton>
     </form>
-    <button class="btn-outline">Login</button>
+    <WoloxButton type="button" variant="outline">Login</WoloxButton>
   </div>
 </template>
 
 <script>
+import WoloxInput from '@/components/WoloxInput.vue'
+import WoloxButton from '@/components/WoloxButton.vue'
+
 export default {
   name: 'register',
+  components: {
+    WoloxInput,
+    WoloxButton
+  },
   data () {
     return {
       firstName: null,
@@ -27,21 +30,21 @@ export default {
     }
   },
   computed: {
-    user() {
+    user () {
       return {
         user: {
           email: this.email,
           password: this.password,
           first_name: this.firstName,
           last_name: this.lastName,
-          locale: "en"
+          locale: 'en'
         }
       }
     }
   },
   methods: {
-    onSubmit() {
-      if(this.firstName && this.email && this.lastName && this.password) {
+    onSubmit () {
+      if (this.firstName && this.email && this.lastName && this.password) {
         console.log(JSON.stringify(this.user))
       }
     }
@@ -51,10 +54,8 @@ export default {
 
 <style scoped lang="scss">
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  max-width: 400px;
+  width: 100%;
 }
 .register-form {
   display: flex;
@@ -63,10 +64,6 @@ export default {
   align-items: center;
   border-bottom: 2px solid rgb(223, 223, 223);
   margin-bottom: 20px;
-}
-input,
-label {
-  width: 400px;
-  text-align: left;
+  width: 100%;
 }
 </style>
