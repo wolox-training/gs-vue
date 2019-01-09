@@ -1,19 +1,53 @@
 <template>
   <div class="container">
-    <form class="register-form">
+    <form class="register-form" @submit.prevent="onSubmit">
       <label>First name</label>
-      <input type="text">
+      <input v-model="firstName" name="first-name" type="text">
       <label>Last name</label>
-      <input type="text">
+      <input v-model="lastName" name="last-name" type="text">
       <label>Email</label>
-      <input type="email">
+      <input v-model="email" name="email" type="email">
       <label>Password</label>
-      <input type="password">
+      <input v-model="password" name="password" type="password">
       <button>Sign up</button>
     </form>
     <button class="btn-outline">Login</button>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'register',
+  data () {
+    return {
+      firstName: null,
+      lastName: null,
+      email: null,
+      password: null
+    }
+  },
+  computed: {
+    user() {
+      return {
+        user: {
+          email: this.email,
+          password: this.password,
+          first_name: this.firstName,
+          last_name: this.lastName,
+          locale: "en"
+        }
+      }
+    }
+  },
+  methods: {
+    onSubmit() {
+      if(this.firstName && this.email && this.lastName && this.password) {
+        console.log(JSON.stringify(this.user))
+      }
+    }
+  }
+}
+</script>
 
 <style scoped lang="scss">
 .container {
