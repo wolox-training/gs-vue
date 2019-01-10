@@ -52,6 +52,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '../scss/variables/colors';
+
 .container {
   max-width: 400px;
   width: 100%;
@@ -60,7 +62,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border-bottom: 2px solid rgb(223, 223, 223);
+  border-bottom: 2px solid $wild-sand;
   margin-bottom: 20px;
   width: 100%;
 }
