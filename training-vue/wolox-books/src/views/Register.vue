@@ -2,13 +2,13 @@
   <div class="container">
     <form class="register-form" @submit.prevent="onSubmit">
       <label class="label">First name</label>
-      <input class="input-wolox" type="text" name="first-name" v-model="firstName" />
+      <input class="input-wolox" name="first-name" v-model="firstName" />
       <label class="label">Last name</label>
-      <input class="input-wolox" type="text" name="last-name" v-model="lastName" />
-      <label class="label">Email</label>
-      <input class="input-wolox" type="email" name="email" v-model="email" />
-      <label class="label">Password</label>
-      <input class="input-wolox" type="password" name="password" v-model="password" />
+      <input class="input-wolox" name="last-name" v-model="lastName" />
+      <label :class="['label', $v.email.$error ? 'text-error' : '']">Email</label>
+      <input :class="['input-wolox', $v.email.$error ? 'input-error' : '']" name="email" v-model="$v.email.$model" />
+      <label :class="['label', $v.password.$error ? 'text-error' : '']">Password</label>
+      <input :class="['input-wolox', $v.password.$error ? 'input-error' : '']" name="password" v-model="$v.password.$model" />
       <button class="btn-wolox" type="submit">Sign up</button>
     </form>
     <button class="btn-wolox-outline" type="button">Login</button>
@@ -16,6 +16,10 @@
 </template>
 
 <script>
+import { required, email } from 'vuelidate/lib/validators'
+import { hasNumber, hasUppercase } from '@/utils/validators'
+import { userService } from '@/services/user'
+
 export default {
   name: 'register',
   components: {
@@ -34,6 +38,7 @@ export default {
         user: {
           email: this.email,
           password: this.password,
+          password_confirmation: this.password,
           first_name: this.firstName,
           last_name: this.lastName,
           locale: 'en'
@@ -41,10 +46,22 @@ export default {
       }
     }
   },
+  validations: {
+    email: {
+      email,
+      required
+    },
+    password: {
+      required,
+      hasNumber,
+      hasUppercase
+    }
+  },
   methods: {
     onSubmit () {
-      if (this.firstName && this.email && this.lastName && this.password) {
-        console.log(JSON.stringify(this.user))
+      this.$v.$touch()
+      if (!this.$v.$invalid) {
+        userService.create(this.user)
       }
     }
   }
