@@ -2,3 +2,5 @@ application.css
 application.css.map
 .sass-cache/
 finger-excercises/react/ecmascript/node_modules/
+
+.DS_Store
