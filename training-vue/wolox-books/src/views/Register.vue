@@ -2,13 +2,13 @@
   <div class="container">
     <form class="register-form" @submit.prevent="onSubmit">
       <label class="label">First name</label>
-      <input class="input-wolox" type="text" name="first-name" v-model="firstName" />
+      <input class="input-wolox" name="first-name" v-model="firstName" />
       <label class="label">Last name</label>
-      <input class="input-wolox" type="text" name="last-name" v-model="lastName" />
-      <label class="label">Email</label>
-      <input class="input-wolox" type="email" name="email" v-model="email" />
-      <label class="label">Password</label>
-      <input class="input-wolox" type="password" name="password" v-model="password" />
+      <input class="input-wolox" name="last-name" v-model="lastName" />
+      <label :class="{'label': true, 'text-error': $v.email.$error}">Email</label>
+      <input :class="{'input-wolox': true, 'input-error': $v.email.$error}" name="email" v-model="$v.email.$model" />
+      <label :class="{'label': true, 'text-error': $v.password.$error}">Password</label>
+      <input :class="{'input-wolox': true, 'input-error': $v.password.$error}" name="password" v-model="$v.password.$model" />
       <button class="btn-wolox" type="submit">Sign up</button>
     </form>
     <button class="btn-wolox-outline" type="button">Login</button>
@@ -16,6 +16,9 @@
 </template>
 
 <script>
+import { required, email } from 'vuelidate/lib/validators'
+import { hasNumber, hasUppercase } from '@/utils/validators'
+
 export default {
   name: 'register',
   components: {
@@ -39,6 +42,17 @@ export default {
           locale: 'en'
         }
       }
+    }
+  },
+  validations: {
+    email: {
+      email,
+      required
+    },
+    password: {
+      required,
+      hasNumber,
+      hasUppercase
     }
   },
   methods: {

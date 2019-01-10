@@ -17,6 +17,7 @@
 @import './scss/variables/colors';
 
 @import './scss/commons/button';
+@import './scss/commons/typography';
 @import './scss/commons/input';
 
 body {
