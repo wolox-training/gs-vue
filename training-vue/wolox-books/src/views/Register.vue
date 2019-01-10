@@ -59,7 +59,8 @@ export default {
   },
   methods: {
     onSubmit () {
-      if (this.firstName && this.email && this.lastName && this.password) {
+      this.$v.$touch()
+      if (!this.$v.$invalid) {
         userService.create(this.user)
       }
     }
