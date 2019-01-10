@@ -5,10 +5,10 @@
       <input class="input-wolox" name="first-name" v-model="firstName" />
       <label class="label">Last name</label>
       <input class="input-wolox" name="last-name" v-model="lastName" />
-      <label :class="{'label': true, 'text-error': $v.email.$error}">Email</label>
-      <input :class="{'input-wolox': true, 'input-error': $v.email.$error}" name="email" v-model="$v.email.$model" />
-      <label :class="{'label': true, 'text-error': $v.password.$error}">Password</label>
-      <input :class="{'input-wolox': true, 'input-error': $v.password.$error}" name="password" v-model="$v.password.$model" />
+      <label :class="['label', $v.email.$error ? 'text-error' : '']">Email</label>
+      <input :class="['input-wolox', $v.email.$error ? 'input-error' : '']" name="email" v-model="$v.email.$model" />
+      <label :class="['label', $v.password.$error ? 'text-error' : '']">Password</label>
+      <input :class="['input-wolox', $v.password.$error ? 'input-error' : '']" name="password" v-model="$v.password.$model" />
       <button class="btn-wolox" type="submit">Sign up</button>
     </form>
     <button class="btn-wolox-outline" type="button">Login</button>
