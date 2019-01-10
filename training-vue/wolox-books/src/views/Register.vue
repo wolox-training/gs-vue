@@ -2,13 +2,21 @@
   <div class="container">
     <form class="register-form" @submit.prevent="onSubmit">
       <label class="label">First name</label>
-      <input class="input-wolox" name="first-name" v-model="firstName" />
+      <input class="input-wolox" name="first-name" v-model="firstName">
       <label class="label">Last name</label>
-      <input class="input-wolox" name="last-name" v-model="lastName" />
-      <label :class="['label', $v.email.$error ? 'text-error' : '']">Email</label>
-      <input :class="['input-wolox', $v.email.$error ? 'input-error' : '']" name="email" v-model="$v.email.$model" />
-      <label :class="['label', $v.password.$error ? 'text-error' : '']">Password</label>
-      <input :class="['input-wolox', $v.password.$error ? 'input-error' : '']" name="password" v-model="$v.password.$model" />
+      <input class="input-wolox" name="last-name" v-model="lastName">
+      <label :class="['label', { 'text-error': $v.email.$error }]">Email</label>
+      <input
+        :class="['input-wolox',  { 'input-error': $v.email.$error }]"
+        name="email"
+        v-model="$v.email.$model"
+      >
+      <label :class="['label', { 'text-error': $v.password.$error }]">Password</label>
+      <input
+        :class="['input-wolox', { 'input-error': $v.password.$error }]"
+        name="password"
+        v-model="$v.password.$model"
+      >
       <button class="btn-wolox" type="submit">Sign up</button>
     </form>
     <button class="btn-wolox-outline" type="button">Login</button>
@@ -69,7 +77,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../scss/variables/colors';
+@import "../scss/variables/colors";
 
 .container {
   max-width: 400px;
