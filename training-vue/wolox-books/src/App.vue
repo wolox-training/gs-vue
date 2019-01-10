@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header>
+    <header id="header">
       <img id="logo" alt="wolox books" src="./assets/wolox_logo.svg">
       <span id="title">BOOKS</span>
     </header>
@@ -14,8 +14,13 @@
 </template>
 
 <style lang="scss">
+@import './scss/variables/colors';
+
+@import './scss/commons/button';
+@import './scss/commons/input';
+
 body {
-  background-color: white;
+  background-color: $white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,14 +35,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #000;
-  background-color: rgb(244, 244, 244);
+  color: $black;
+  background-color: $wild-sand;
   padding: 40px 20px 20px;
-  border-top: 4px solid rgb(71, 172, 232);
+  border-top: 4px solid $picton-blue;
   width: 100%;
   max-width: 400px;
   box-sizing: border-box;
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 4px 4px 0 $black-alpha-15;
 }
 #nav {
   padding: 30px;
@@ -52,7 +57,7 @@ body {
     }
   }
 }
-header {
+#header {
   width: 100%;
   display: flex;
   flex-direction: column;
