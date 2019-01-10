@@ -18,6 +18,7 @@
 <script>
 import { required, email } from 'vuelidate/lib/validators'
 import { hasNumber, hasUppercase } from '@/utils/validators'
+import { userService } from '@/services/user'
 
 export default {
   name: 'register',
@@ -37,6 +38,7 @@ export default {
         user: {
           email: this.email,
           password: this.password,
+          password_confirmation: this.password,
           first_name: this.firstName,
           last_name: this.lastName,
           locale: 'en'
@@ -58,7 +60,7 @@ export default {
   methods: {
     onSubmit () {
       if (this.firstName && this.email && this.lastName && this.password) {
-        console.log(JSON.stringify(this.user))
+        userService.create(this.user)
       }
     }
   }
