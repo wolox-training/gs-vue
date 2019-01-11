@@ -14,6 +14,8 @@
 </template>
 
 <style lang="scss">
+@import '~wolox-equalizer/equalizer';
+
 @import './scss/variables/colors';
 
 @import './scss/commons/button';
@@ -26,8 +28,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0;
-  margin: 0;
   min-height: 100vh;
 }
 
