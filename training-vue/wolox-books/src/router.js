@@ -1,15 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      redirect: { name: 'login' }
     },
     {
       path: '/about',
@@ -17,9 +16,14 @@ export default new Router({
       component: () => import('./views/About.vue')
     },
     {
-      path: '/register',
-      name: 'register',
+      path: '/sign-up',
+      name: 'sign-up',
       component: () => import('./views/Register.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('./views/Login.vue')
     }
   ]
 })
