@@ -1,26 +1,16 @@
-<template>
-  <div class="container">
-    <form class="register-form" @submit.prevent="onSubmit">
-      <label class="label">First name</label>
-      <input class="input-wolox" name="first-name" v-model="firstName">
-      <label class="label">Last name</label>
-      <input class="input-wolox" name="last-name" v-model="lastName">
-      <label :class="['label', { 'text-error': $v.email.$error }]">Email</label>
-      <input
-        :class="['input-wolox',  { 'input-error': $v.email.$error }]"
-        name="email"
-        v-model="$v.email.$model"
-      >
-      <label :class="['label', { 'text-error': $v.password.$error }]">Password</label>
-      <input
-        :class="['input-wolox', { 'input-error': $v.password.$error }]"
-        name="password"
-        v-model="$v.password.$model"
-      >
-      <button class="btn-wolox" type="submit">Sign up</button>
-    </form>
-    <button class="btn-wolox-outline" type="button">Login</button>
-  </div>
+<template lang="pug">
+  .container
+    form.register-form(@submit.prevent='onSubmit')
+      label.label First name
+      input.input-wolox(name='first-name', v-model='firstName')
+      label.label Last name
+      input.input-wolox(name='last-name', v-model='lastName')
+      label(:class="['label', { 'text-error': $v.email.$error }]") Email
+      input(:class="['input-wolox',  { 'input-error': $v.email.$error }]", name='email', v-model='$v.email.$model')
+      label(:class="['label', { 'text-error': $v.password.$error }]") Password
+      input(:class="['input-wolox', { 'input-error': $v.password.$error }]", name='password', v-model='$v.password.$model')
+      button.btn-wolox(type='submit') Sign up
+    button.btn-wolox-outline(type='button') Login
 </template>
 
 <script>
