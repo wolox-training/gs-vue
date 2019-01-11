@@ -23,6 +23,7 @@
 <script>
 import { required, email } from 'vuelidate/lib/validators'
 import { hasNumber, hasUppercase } from '@/utils/validators'
+import { userService } from '@/services/user'
 
 export default {
   name: 'login',
@@ -59,7 +60,8 @@ export default {
     onSubmit () {
       this.$v.$touch()
       if (!this.$v.$invalid) {
-        console.log(this.session)
+        userService.sessions.create(this.session)
+          .then(response => console.log(response.data.access_token))
       }
     }
   }
