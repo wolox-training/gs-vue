@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <Dialog>
     <form class="login-form" @submit.prevent="onSubmit">
       <label :class="['label', { 'text-error': $v.email.$error }]">Email</label>
       <input
@@ -17,17 +17,19 @@
       <button class="btn-wolox" type="submit">Login</button>
     </form>
     <router-link class="btn-wolox-outline" to="/sign-up">Sign up</router-link>
-  </div>
+  </Dialog>
 </template>
 
 <script>
 import { required, email } from 'vuelidate/lib/validators'
+import Dialog from '@/components/Dialog.vue'
 import { hasNumber, hasUppercase } from '@/utils/validators'
 import { userService } from '@/services/user'
 
 export default {
   name: 'login',
   components: {
+    Dialog
   },
   data () {
     return {
@@ -71,10 +73,6 @@ export default {
 <style scoped lang="scss">
 @import "../scss/variables/colors";
 
-.container {
-  max-width: 400px;
-  width: 100%;
-}
 .login-form {
   display: flex;
   flex-direction: column;
