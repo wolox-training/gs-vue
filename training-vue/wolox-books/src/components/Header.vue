@@ -1,14 +1,11 @@
-<template>
-  <div class="header-container">
-    <header class="header">
-      <div class="logo">
-      <img src="../assets/wolox_logo.svg" /><span class="title">BOOKS</span>
-    </div>
-    <div class="links">
-      <router-link class="btn-link" to="/login">Logout</router-link>
-    </div>
-    </header>
-  </div>
+<template lang="pug">
+  .header-container
+    header.header
+      .logo
+        img(src='../assets/wolox_logo.svg')
+        span.title BOOKS
+      .links
+        router-link.btn-link(to='/login') Logout
 </template>
 
 <script>

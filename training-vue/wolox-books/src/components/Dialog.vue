@@ -1,11 +1,9 @@
-<template>
-  <div class="dialog">
-    <header id="header">
-      <img id="logo" alt="wolox books" src="../assets/wolox_logo.svg">
-      <span id="title">BOOKS</span>
-    </header>
-    <slot />
-  </div>
+<template lang="pug">
+  .dialog
+    header#header
+      img#logo(alt='wolox books', src='../assets/wolox_logo.svg')
+      span#title BOOKS
+    slot
 </template>
 
 <script>
