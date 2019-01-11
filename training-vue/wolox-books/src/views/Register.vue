@@ -20,7 +20,7 @@
       >
       <button class="btn-wolox" type="submit">Sign up</button>
     </form>
-    <button class="btn-wolox-outline" type="button">Login</button>
+    <router-link class="btn-wolox-outline" to="/login">Login</router-link>
   </div>
 </template>
 
