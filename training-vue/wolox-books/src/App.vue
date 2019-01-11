@@ -12,14 +12,8 @@
 @import './scss/commons/input';
 
 body {
-  background-color: $white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 0;
   margin: 0;
-  min-height: 100vh;
 }
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
@@ -27,5 +21,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: $black;
+  background-color: $white;
+  padding: 0;
+  margin: 0;
 }
 </style>

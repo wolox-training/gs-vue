@@ -26,6 +26,8 @@ export default {
   width: 100%;
   box-sizing: border-box;
   box-shadow: 4px 4px 0 $black-alpha-15;
+  align-self: center;
+  justify-self: center;
 }
 #header {
   width: 100%;
