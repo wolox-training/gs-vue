@@ -11,7 +11,6 @@
       input(:class="['input-wolox', { 'input-error': $v.password.$error }]", name='password', type='password', v-model='$v.password.$model')
       button.btn-wolox(type='submit') Sign up
     router-link.btn-wolox-outline(to='/login') Login
-
 </template>
 
 <script>
