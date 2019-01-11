@@ -1,6 +1,7 @@
 <template>
-  <Header>
-  </Header>
+  <div class="container">
+    <Header />
+  </div>
 </template>
 
 <script>
@@ -13,3 +14,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@import '../scss/variables/colors';
+
+.container {
+  background-color: $wild-sand;
+  min-height: 100vh;
+}
+</style>
