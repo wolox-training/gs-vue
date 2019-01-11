@@ -15,6 +15,7 @@
       <input
         :class="['input-wolox', { 'input-error': $v.password.$error }]"
         name="password"
+        type="password"
         v-model="$v.password.$model"
       >
       <button class="btn-wolox" type="submit">Sign up</button>
