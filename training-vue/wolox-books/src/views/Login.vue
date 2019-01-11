@@ -1,23 +1,12 @@
-<template>
-  <div class="container">
-    <form class="login-form" @submit.prevent="onSubmit">
-      <label :class="['label', { 'text-error': $v.email.$error }]">Email</label>
-      <input
-        :class="['input-wolox',  { 'input-error': $v.email.$error }]"
-        name="email"
-        v-model="$v.email.$model"
-      >
-      <label :class="['label', { 'text-error': $v.password.$error }]">Password</label>
-      <input
-        :class="['input-wolox', { 'input-error': $v.password.$error }]"
-        name="password"
-        type="password"
-        v-model="$v.password.$model"
-      >
-      <button class="btn-wolox" type="submit">Login</button>
-    </form>
-    <router-link class="btn-wolox-outline" to="/sign-up">Sign up</router-link>
-  </div>
+<template lang="pug">
+  .container
+    form.login-form(@submit.prevent='onSubmit')
+      label(:class="['label', { 'text-error': $v.email.$error }]") Email
+      input(:class="['input-wolox',  { 'input-error': $v.email.$error }]", name='email', v-model='$v.email.$model')
+      label(:class="['label', { 'text-error': $v.password.$error }]") Password
+      input(:class="['input-wolox', { 'input-error': $v.password.$error }]", name='password', type='password', v-model='$v.password.$model')
+      button.btn-wolox(type='submit') Login
+    router-link.btn-wolox-outline(to='/sign-up') Sign up
 </template>
 
 <script>
