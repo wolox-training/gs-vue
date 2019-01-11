@@ -5,12 +5,20 @@
         img(src='../assets/wolox_logo.svg')
         span.title BOOKS
       .links
-        router-link.btn-link(to='/login') Logout
+        button.btn-link(@click='logout') Logout
 </template>
 
 <script>
+import { localStorageService } from '@/services/localStorage'
+
 export default {
-  name: 'Header'
+  name: 'Header',
+  methods: {
+    logout () {
+      localStorageService.removeToken()
+      this.$router.push({ name: 'login' })
+    }
+  }
 }
 </script>
 
