@@ -32,13 +32,15 @@ const removeValue = key => {
   }
 }
 
+export const localStorageService = {}
+
 const defineProperty = (prop, defaultKey = '', tag = '') => {
   const capitalizedKey = `${prop[0].toUpperCase()}${prop.substring(1)}`
-  module.exports[`set${capitalizedKey}`] = (val, key = defaultKey) =>
+  localStorageService[`set${capitalizedKey}`] = (val, key = defaultKey) =>
     setValue(`@@WOLOX_BOOKS:${prop}${tag}${key}`, val)
-  module.exports[`get${capitalizedKey}`] = (key = defaultKey) =>
+  localStorageService[`get${capitalizedKey}`] = (key = defaultKey) =>
     getValue(`@@WOLOX_BOOKS:${prop}${tag}${key}`)
-  module.exports[`remove${capitalizedKey}`] = (key = defaultKey) =>
+  localStorageService[`remove${capitalizedKey}`] = (key = defaultKey) =>
     removeValue(`@@WOLOX_BOOKS:${prop}${tag}${key}`)
 }
 

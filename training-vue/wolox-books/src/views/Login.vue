@@ -27,6 +27,7 @@ import { required, email } from 'vuelidate/lib/validators'
 import Dialog from '@/components/Dialog.vue'
 import { hasNumber, hasUppercase } from '@/utils/validators'
 import { userService } from '@/services/user'
+import { localStorageService } from '@/services/localStorage'
 
 export default {
   name: 'login',
@@ -65,7 +66,14 @@ export default {
       this.$v.$touch()
       if (!this.$v.$invalid) {
         userService.sessions.create(this.session)
-          .then(response => console.log(response.data.access_token))
+          .then(response => {
+            if (response.ok) {
+              localStorageService.setToken(response.data.access_token)
+              this.$router.push({ name: 'auth' })
+            } else {
+              // TODO: show error to user
+            }
+          })
       }
     }
   }
