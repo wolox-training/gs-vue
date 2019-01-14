@@ -72,19 +72,20 @@ export default {
 @import "../scss/variables/colors";
 
 .login-form {
-  display: flex;
-  flex-direction: column;
   align-items: flex-start;
   border-bottom: 2px solid $black-alpha-15;
+  display: flex;
+  flex-direction: column;
   margin-bottom: 20px;
   width: 100%;
 }
+
 .container {
-  width: 100%;
-  min-height: 100vh;
+  align-items: center;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: center;
+  min-height: 100vh;
+  width: 100%;
 }
 </style>
