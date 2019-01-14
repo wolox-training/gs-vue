@@ -2,7 +2,7 @@
   .dashboard-container
     wolox-navbar.m-bottom-2
     .books
-      book(v-for="book in books" :title="book.title" :author="book.author" :image="book.image_url" :key="book.id")
+      book(v-for="book in books" :book="book" :key="book.id")
 </template>
 
 <script>

@@ -1,19 +1,26 @@
 <template lang="pug">
   .book
-    img.image.m-bottom-1(:src="image")
+    img.image.m-bottom-1(:src="book.image_url")
     span.title
-      | {{title}}
+      | {{book.title}}
     span.author
-      | {{author}}
+      | {{book.author}}
 </template>
 
 <script>
 export default {
   name: 'WoloxNavbar',
   props: {
-    image: String,
-    title: String,
-    author: String
+    book: {
+      author: String,
+      description: String,
+      genre: String,
+      id: Number,
+      image_url: String,
+      publisher: String,
+      title: String,
+      year: String
+    }
   }
 }
 </script>
