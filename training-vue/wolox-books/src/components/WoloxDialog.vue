@@ -2,7 +2,8 @@
   .dialog
     header.header
       img.logo(alt='wolox books', src='../assets/wolox_logo.svg')
-      span.title BOOKS
+      span.title
+        | BOOKS
     slot
 </template>
 
