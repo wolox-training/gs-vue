@@ -1,15 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+import { localStorageService } from './services/localStorage'
+
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   routes: [
-    {
-      path: '/',
-      redirect: { name: 'login' }
-    },
     {
       path: '/about',
       name: 'about',
@@ -26,9 +24,18 @@ export default new Router({
       component: () => import('./views/Login.vue')
     },
     {
-      path: '/auth',
-      name: 'auth',
-      component: () => import('./views/Auth.vue')
+      path: '/',
+      name: 'dashboard',
+      component: () => import('./views/Dashboard.vue')
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.name === 'dashboard' && !localStorageService.getToken()) {
+    next({ name: 'login' })
+  }
+  next()
+})
+
+export default router

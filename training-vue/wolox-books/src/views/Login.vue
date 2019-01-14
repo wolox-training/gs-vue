@@ -61,7 +61,7 @@ export default {
           .then(response => {
             if (response.ok) {
               localStorageService.setToken(response.data.access_token)
-              this.$router.push({ name: 'auth' })
+              this.$router.push({ name: 'dashboard' })
             } else {
               // TODO: show error to user
             }

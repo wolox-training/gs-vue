@@ -1,5 +1,5 @@
 <template lang="pug">
-  .auth-container
+  .dashboard-container
     wolox-navbar
 </template>
 
@@ -7,7 +7,7 @@
 import WoloxNavbar from '@/components/WoloxNavbar.vue'
 
 export default {
-  name: 'Auth',
+  name: 'Dashboard',
   components: {
     WoloxNavbar
   }
@@ -17,7 +17,7 @@ export default {
 <style lang="scss" scoped>
 @import '../scss/variables/colors';
 
-.auth-container {
+.dashboard-container {
   background-color: $wild-sand;
   min-height: 100vh;
 }

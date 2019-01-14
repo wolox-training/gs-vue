@@ -1,6 +1,6 @@
 <template lang="pug">
-  .header-container
-    header.header
+  .navbar-container
+    header.navbar
       .logo
         img(src='../assets/wolox_logo.svg' alt="logo")
         span.title
