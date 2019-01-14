@@ -2,7 +2,7 @@
   .header-container
     header.header
       .logo
-        img(src='../assets/wolox_logo.svg')
+        img(src='../assets/wolox_logo.svg' alt="logo")
         span.title
           | BOOKS
       .links
@@ -27,7 +27,7 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/variables/colors";
 
-.header-container {
+.navbar-container {
   background-color: $white;
   border-top: 4px solid $picton-blue;
   box-shadow: 0 4px 0 $black-alpha-15;
@@ -53,7 +53,7 @@ export default {
   margin: 0;
 }
 
-.header {
+.navbar {
   align-items: center;
   display: flex;
   justify-content: space-between;
