@@ -45,6 +45,7 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   width: 150px;
+  text-align: center;
 }
 
 .title {
