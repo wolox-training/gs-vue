@@ -5,11 +5,17 @@
 
 <script>
 import WoloxNavbar from '@/components/WoloxNavbar.vue'
+import { bookService } from '@/services/book'
 
 export default {
   name: 'Dashboard',
   components: {
     WoloxNavbar
+  },
+  data () {
+    return {
+      books: bookService.list()
+    }
   }
 }
 </script>
