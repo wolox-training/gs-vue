@@ -3,9 +3,11 @@
     header.header
       .logo
         img(src='../assets/wolox_logo.svg')
-        span.title BOOKS
+        span.title
+          | BOOKS
       .links
-        button.btn-link(@click='logout') Logout
+        button.btn-link(@click='logout')
+          | Logout
 </template>
 
 <script>
