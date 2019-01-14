@@ -11,4 +11,5 @@
 @import './scss/commons/typography';
 @import './scss/commons/input';
 @import './scss/commons/layout';
+@import './scss/commons/spacings';
 </style>
