@@ -7,7 +7,7 @@
 import WoloxNavbar from '@/components/WoloxNavbar.vue'
 
 export default {
-  name: 'login',
+  name: 'Auth',
   components: {
     WoloxNavbar
   }

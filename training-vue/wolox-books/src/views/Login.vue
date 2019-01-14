@@ -22,7 +22,7 @@ import { userService } from '@/services/user'
 import { localStorageService } from '@/services/localStorage'
 
 export default {
-  name: 'login',
+  name: 'Login',
   components: {
     WoloxDialog
   },

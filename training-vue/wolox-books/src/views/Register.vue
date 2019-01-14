@@ -27,7 +27,7 @@ import { hasNumber, hasUppercase } from '@/utils/validators'
 import { userService } from '@/services/user'
 
 export default {
-  name: 'register',
+  name: 'Register',
   components: {
     WoloxDialog
   },
