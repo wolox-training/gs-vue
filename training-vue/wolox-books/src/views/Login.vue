@@ -1,4 +1,3 @@
 <template lang="pug">
-  div
-    h1 Login
+  h1 Login
 </template>
