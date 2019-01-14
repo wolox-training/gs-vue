@@ -12,6 +12,7 @@
 @import './scss/commons/button';
 @import './scss/commons/typography';
 @import './scss/commons/input';
+@import './scss/commons/layout';
 
 .app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;

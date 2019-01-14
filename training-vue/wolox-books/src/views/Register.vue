@@ -80,13 +80,4 @@ export default {
   margin-bottom: 20px;
   width: 100%;
 }
-
-.container {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  min-height: 100vh;
-  width: 100%;
-}
 </style>

@@ -1,5 +1,5 @@
 <template lang="pug">
-  .container
+  .auth-container
     Header
 </template>
 
@@ -17,7 +17,7 @@ export default {
 <style lang="scss" scoped>
 @import '../scss/variables/colors';
 
-.container {
+.auth-container {
   background-color: $wild-sand;
   min-height: 100vh;
 }
