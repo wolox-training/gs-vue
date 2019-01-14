@@ -64,6 +64,7 @@ export default {
   max-width: 400px;
   width: 100%;
 }
+
 .login-form {
   display: flex;
   flex-direction: column;
