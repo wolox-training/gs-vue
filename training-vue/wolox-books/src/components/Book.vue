@@ -1,7 +1,7 @@
 <template lang="pug">
   .book
-    img.image.m-bottom-1(:src="book.image_url")
-    span.title
+    img.image.m-bottom-1(:src="book.image_url" :alt="book.title")
+    h3.title
       | {{book.title}}
     span.author
       | {{book.author}}
@@ -39,6 +39,7 @@ export default {
 }
 
 .image {
+  object-fit: cover;
   background-color: $wild-sand;
   width: 184px;
   height: 184px;
