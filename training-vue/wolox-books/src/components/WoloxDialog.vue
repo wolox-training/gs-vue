@@ -6,12 +6,6 @@
     slot
 </template>
 
-<script>
-export default {
-  name: 'Dialog'
-}
-</script>
-
 <style lang="scss" scoped>
 @import "../scss/variables/colors";
 

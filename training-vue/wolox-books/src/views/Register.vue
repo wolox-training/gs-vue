@@ -1,6 +1,6 @@
 <template lang="pug">
   .container
-    Dialog
+    wolox-dialog
       form.register-form(@submit.prevent='onSubmit')
         label.label
           | First name
@@ -22,14 +22,14 @@
 
 <script>
 import { required, email } from 'vuelidate/lib/validators'
-import Dialog from '@/components/Dialog.vue'
+import WoloxDialog from '@/components/WoloxDialog.vue'
 import { hasNumber, hasUppercase } from '@/utils/validators'
 import { userService } from '@/services/user'
 
 export default {
   name: 'register',
   components: {
-    Dialog
+    WoloxDialog
   },
   data () {
     return {

@@ -1,15 +1,15 @@
 <template lang="pug">
   .auth-container
-    Header
+    wolox-navbar
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
+import WoloxNavbar from '@/components/WoloxNavbar.vue'
 
 export default {
   name: 'login',
   components: {
-    Header
+    WoloxNavbar
   }
 }
 </script>

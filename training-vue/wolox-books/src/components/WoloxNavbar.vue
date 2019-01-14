@@ -14,7 +14,7 @@
 import { localStorageService } from '@/services/localStorage'
 
 export default {
-  name: 'Header',
+  name: 'WoloxNavbar',
   methods: {
     logout () {
       localStorageService.removeToken()
