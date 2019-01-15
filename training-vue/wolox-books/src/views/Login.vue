@@ -1,22 +1,31 @@
 <template lang="pug">
   .container
-    form.login-form(@submit.prevent='onSubmit')
-      label(:class="['label', { 'text-error': $v.email.$error }]") Email
-      input(:class="['input-wolox',  { 'input-error': $v.email.$error }]", name='email', v-model='$v.email.$model')
-      label(:class="['label', { 'text-error': $v.password.$error }]") Password
-      input(:class="['input-wolox', { 'input-error': $v.password.$error }]", name='password', type='password', v-model='$v.password.$model')
-      button.btn-wolox(type='submit') Login
-    router-link.btn-wolox-outline(to='/sign-up') Sign up
+    dashboard
+      form.login-form(@submit.prevent='onSubmit')
+        label(:class="['label', { 'text-error': $v.email.$error }]")
+          | Email
+        input(:class="['input-wolox',  { 'input-error': $v.email.$error }]", name='email', v-model='$v.email.$model')
+        label(:class="['label', { 'text-error': $v.password.$error }]")
+          | Password
+        input(:class="['input-wolox', { 'input-error': $v.password.$error }]", name='password', type='password', v-model='$v.password.$model')
+        button.btn-wolox
+          | Login
+      router-link.btn-wolox-outline(to='/sign-up')
+        | Sign up
 </template>
 
 <script>
 import { required, email } from 'vuelidate/lib/validators'
+import Dashboard from '@/components/Dashboard.vue'
 import { hasNumber, hasUppercase } from '@/utils/validators'
 import { userService } from '@/services/user'
+import { localStorageService } from '@/services/localStorage'
+import { setAuthHeader } from '@/config/api'
 
 export default {
-  name: 'login',
+  name: 'Login',
   components: {
+    Dashboard
   },
   data () {
     return {
@@ -50,7 +59,15 @@ export default {
       this.$v.$touch()
       if (!this.$v.$invalid) {
         userService.sessions.create(this.session)
-          .then(response => console.log(response.data.access_token))
+          .then(response => {
+            if (response.ok) {
+              localStorageService.setToken(response.data.access_token)
+              setAuthHeader(response.data.access_token)
+              this.$router.push({ name: 'dashboard' })
+            } else {
+              // TODO: show error to user
+            }
+          })
       }
     }
   }
@@ -60,16 +77,11 @@ export default {
 <style scoped lang="scss">
 @import "../scss/variables/colors";
 
-.container {
-  max-width: 400px;
-  width: 100%;
-}
-
 .login-form {
+  align-items: flex-start;
+  border-bottom: 2px solid $black-alpha-15;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  border-bottom: 2px solid $wild-sand;
   margin-bottom: 20px;
   width: 100%;
 }
