@@ -1,8 +1,10 @@
 <template lang="pug">
   .dashboard-container
-      wolox-navbar.m-bottom-2
-      .h1
-        | {{`Showing book ${id}`}}
+    wolox-navbar.m-bottom-2
+    h1
+      | {{`Showing book ${id}`}}
+    div
+      | {{JSON.stringify(book)}}
 </template>
 
 <script>
@@ -15,6 +17,17 @@ export default {
   },
   props: {
     id: Number
+  },
+  mounted () {
+    this.$store.dispatch('books/loadDetail', this.id)
+  },
+  beforeDestroy () {
+    this.$store.dispatch('books/resetDetail')
+  },
+  computed: {
+    book () {
+      return this.$store.getters['books/detail']
+    }
   }
 }
 </script>
