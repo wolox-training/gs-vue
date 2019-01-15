@@ -1,14 +1,16 @@
 <template lang="pug">
-  .dashboard-container
+  .container-column
     wolox-navbar.m-bottom-2
     .books
-      book(v-for="book in books" :book="book" :key="book.id")
+      router-link(v-for="book in books" :key="book.id" :to="`/books/${book.id}`")
+        book(:book="book")
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
+
 import WoloxNavbar from '@/components/WoloxNavbar.vue'
 import Book from '@/components/Book.vue'
-import { bookService } from '@/services/book'
 
 export default {
   name: 'Dashboard',
@@ -16,14 +18,17 @@ export default {
     WoloxNavbar,
     Book
   },
-  data () {
-    return {
-      books: []
-    }
-  },
   mounted () {
-    bookService.list().then(response => {
-      this.books = response.data
+    this.loadBooks()
+  },
+  methods: {
+    ...mapActions({
+      loadBooks: 'books/load'
+    })
+  },
+  computed: {
+    ...mapGetters({
+      books: 'books/list'
     })
   }
 }
@@ -31,14 +36,6 @@ export default {
 
 <style lang="scss" scoped>
 @import '../scss/variables/colors';
-
-.dashboard-container {
-  background-color: $wild-sand;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-}
 
 .books {
   display: grid;
