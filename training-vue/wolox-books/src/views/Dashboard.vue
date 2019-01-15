@@ -8,7 +8,6 @@
 <script>
 import WoloxNavbar from '@/components/WoloxNavbar.vue'
 import Book from '@/components/Book.vue'
-import { bookService } from '@/services/book'
 
 export default {
   name: 'Dashboard',
@@ -16,15 +15,14 @@ export default {
     WoloxNavbar,
     Book
   },
-  data () {
-    return {
-      books: []
-    }
-  },
   mounted () {
-    bookService.list().then(response => {
-      this.books = response.data
-    })
+    console.log(this.$store)
+    this.$store.dispatch('books/load')
+  },
+  computed: {
+    books () {
+      return this.$store.getters['books/list']
+    }
   }
 }
 </script>
