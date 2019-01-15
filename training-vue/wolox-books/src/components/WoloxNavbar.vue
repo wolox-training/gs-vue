@@ -12,12 +12,14 @@
 
 <script>
 import { localStorageService } from '@/services/localStorage'
+import { removeAuthHeader } from '@/config/api'
 
 export default {
   name: 'WoloxNavbar',
   methods: {
     logout () {
       localStorageService.removeToken()
+      removeAuthHeader()
       this.$router.push({ name: 'login' })
     }
   }
