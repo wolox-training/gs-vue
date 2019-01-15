@@ -1,5 +1,5 @@
 <template lang="pug">
-  .dashboard-container
+  .container-column
     wolox-navbar.m-bottom-2
     .card(v-if="book")
       img.image(:src="book.image_url")
@@ -52,14 +52,6 @@ export default {
 
 <style lang="scss" scoped>
 @import '../scss/variables/colors';
-
-.dashboard-container {
-  background-color: $wild-sand;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-}
 
 .card {
   background-color: $white;
