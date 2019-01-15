@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
+
 import WoloxNavbar from '@/components/WoloxNavbar.vue'
 import Book from '@/components/Book.vue'
 
@@ -16,12 +18,17 @@ export default {
     Book
   },
   mounted () {
-    this.$store.dispatch('books/load')
+    this.loadBooks()
+  },
+  methods: {
+    ...mapActions({
+      loadBooks: 'books/load'
+    })
   },
   computed: {
-    books () {
-      return this.$store.getters['books/list']
-    }
+    ...mapGetters({
+      books: 'books/list'
+    })
   }
 }
 </script>
