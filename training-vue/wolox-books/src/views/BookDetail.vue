@@ -38,7 +38,7 @@ export default {
     id: String
   },
   mounted () {
-    this.loadDetail()
+    this.loadDetail(this.id)
   },
   beforeDestroy () {
     this.resetDetail()
