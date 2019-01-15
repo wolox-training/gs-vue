@@ -12,3 +12,8 @@
   @extend %text;
   color: $vivid-tangerine;
 }
+
+.bold {
+  color: $black;
+  font-weight: 700;
+}
