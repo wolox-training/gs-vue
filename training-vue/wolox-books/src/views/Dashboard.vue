@@ -2,7 +2,8 @@
   .dashboard-container
     wolox-navbar.m-bottom-2
     .books
-      book(v-for="book in books" :book="book" :key="book.id")
+      router-link(v-for="book in books" :key="book.id" :to="`/books/${book.id}`")
+        book(:book="book")
 </template>
 
 <script>

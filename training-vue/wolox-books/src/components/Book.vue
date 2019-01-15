@@ -36,6 +36,7 @@ export default {
   align-items: start;
   padding: 8px;
   width: 200px;
+  height: 100%;
 }
 
 .image {
