@@ -1,0 +1,31 @@
+%btn {
+  border: solid 2px $celery;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 14px;
+  margin-bottom: 20px;
+  padding: 15px;
+  width: 100%;
+}
+
+.btn-wolox {
+  @extend %btn;
+  background-color: $celery;
+  color: $white;
+}
+
+.btn-wolox-outline {
+  @extend %btn;
+  background-color: transparent;
+  color: $celery;
+}
+
+.btn-link {
+  background-color: transparent;
+  border: none;
+  color: $black;
+  font-size: 14px;
+  font-weight: 700;
+}
