@@ -6,8 +6,8 @@ export default {
     list: []
   },
   mutations: {
-    setList (state, payload) {
-      state.list = payload.list
+    setList (state, { list }) {
+      state.list = list
     }
   },
   actions: {
@@ -18,8 +18,6 @@ export default {
     }
   },
   getters: {
-    list (state) {
-      return state.list
-    }
+    list: state => state.list
   }
 }
