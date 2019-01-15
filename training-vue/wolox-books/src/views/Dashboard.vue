@@ -1,8 +1,9 @@
 <template lang="pug">
-  .dashboard-container
+  .container-column
     wolox-navbar.m-bottom-2
     .books
-      book(v-for="book in books" :book="book" :key="book.id")
+      router-link(v-for="book in books" :key="book.id" :to="`/books/${book.id}`")
+        book(:book="book")
 </template>
 
 <script>
@@ -35,14 +36,6 @@ export default {
 
 <style lang="scss" scoped>
 @import '../scss/variables/colors';
-
-.dashboard-container {
-  background-color: $wild-sand;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-}
 
 .books {
   display: grid;
