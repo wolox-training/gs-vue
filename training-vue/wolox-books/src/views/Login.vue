@@ -8,7 +8,7 @@
         label(:class="['label', { 'text-error': $v.password.$error }]")
           | Password
         input(:class="['input-wolox', { 'input-error': $v.password.$error }]", name='password', type='password', v-model='$v.password.$model')
-        button.btn-wolox(type='submit')
+        button.btn-wolox
           | Login
       router-link.btn-wolox-outline(to='/sign-up')
         | Sign up
