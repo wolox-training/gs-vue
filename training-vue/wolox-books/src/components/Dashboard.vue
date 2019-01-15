@@ -1,5 +1,5 @@
 <template lang="pug">
-  .dialog
+  .dashboard
     header.header
       img.logo(alt='wolox books', src='../assets/wolox_logo.svg')
       span.title
@@ -10,7 +10,7 @@
 <style lang="scss" scoped>
 @import "../scss/variables/colors";
 
-.dialog {
+.dashboard {
   align-self: center;
   background-color: $wild-sand;
   border-top: 4px solid $picton-blue;

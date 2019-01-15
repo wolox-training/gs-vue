@@ -1,6 +1,6 @@
 <template lang="pug">
   .container
-    wolox-dialog
+    dashboard
       form.login-form(@submit.prevent='onSubmit')
         label(:class="['label', { 'text-error': $v.email.$error }]")
           | Email
@@ -16,7 +16,7 @@
 
 <script>
 import { required, email } from 'vuelidate/lib/validators'
-import WoloxDialog from '@/components/WoloxDialog.vue'
+import Dashboard from '@/components/Dashboard.vue'
 import { hasNumber, hasUppercase } from '@/utils/validators'
 import { userService } from '@/services/user'
 import { localStorageService } from '@/services/localStorage'
@@ -24,7 +24,7 @@ import { localStorageService } from '@/services/localStorage'
 export default {
   name: 'Login',
   components: {
-    WoloxDialog
+    Dashboard
   },
   data () {
     return {
