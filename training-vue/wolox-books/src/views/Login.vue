@@ -20,6 +20,7 @@ import WoloxDialog from '@/components/WoloxDialog.vue'
 import { hasNumber, hasUppercase } from '@/utils/validators'
 import { userService } from '@/services/user'
 import { localStorageService } from '@/services/localStorage'
+import { setAuthHeader } from '@/config/api'
 
 export default {
   name: 'Login',
@@ -61,6 +62,7 @@ export default {
           .then(response => {
             if (response.ok) {
               localStorageService.setToken(response.data.access_token)
+              setAuthHeader(response.data.access_token)
               this.$router.push({ name: 'dashboard' })
             } else {
               // TODO: show error to user
