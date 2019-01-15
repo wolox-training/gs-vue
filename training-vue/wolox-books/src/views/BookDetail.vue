@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 import WoloxNavbar from '@/components/WoloxNavbar'
 
 export default {
@@ -37,15 +38,21 @@ export default {
     id: String
   },
   mounted () {
-    this.$store.dispatch('books/loadDetail', this.id)
+    this.loadDetail()
   },
   beforeDestroy () {
-    this.$store.dispatch('books/resetDetail')
+    this.resetDetail()
+  },
+  methods: {
+    ...mapActions({
+      loadDetail: 'books/loadDetail',
+      resetDetail: 'books/resetDetail'
+    })
   },
   computed: {
-    book () {
-      return this.$store.getters['books/detail']
-    }
+    ...mapGetters({
+      book: 'books/detail'
+    })
   }
 }
 </script>
