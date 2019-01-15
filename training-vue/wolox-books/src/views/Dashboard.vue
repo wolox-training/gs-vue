@@ -16,7 +16,6 @@ export default {
     Book
   },
   mounted () {
-    console.log(this.$store)
     this.$store.dispatch('books/load')
   },
   computed: {
