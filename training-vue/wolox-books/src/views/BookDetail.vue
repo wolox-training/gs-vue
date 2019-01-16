@@ -11,18 +11,18 @@
       .more-info
         span.m-bottom-2
           span.bold.p-right-1
-            | {{ $t("bookDetail.author") }}
+            | {{ $t('bookDetail.author') }}
           | {{book.author}}
         span.m-bottom-2
           span.bold.p-right-1
-            | {{ $t("bookDetail.publisher") }}
+            | {{ $t('bookDetail.publisher') }}
           | {{book.publisher}}
         span
           span.bold.p-right-1
-            | {{ $t("bookDetail.year") }}
+            | {{ $t('bookDetail.year') }}
           | {{book.year}}
     span(v-else)
-      | {{ $t("bookDetail.loading") }}
+      | {{ $t('bookDetail.loading') }}
 </template>
 
 <script>

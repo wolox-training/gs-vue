@@ -7,7 +7,7 @@
           | BOOKS
       .links
         button.btn-link(@click='logout')
-          | {{ $t("woloxNavbar.logout") }}
+          | {{ $t('woloxNavbar.logout') }}
 </template>
 
 <script>

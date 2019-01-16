@@ -3,21 +3,21 @@
     dashboard
       form.register-form(@submit.prevent='onSubmit')
         label.label
-          | {{ $t("signup.firstName") }}
+          | {{ $t('signup.firstName') }}
         input.input-wolox(name='first-name', v-model='firstName')
         label.label
-          | {{ $t("signup.lastName") }}
+          | {{ $t('signup.lastName') }}
         input.input-wolox(name='last-name', v-model='lastName')
         label(:class="['label', { 'text-error': $v.email.$error }]")
-          | {{ $t("signup.email") }}
+          | {{ $t('signup.email') }}
         input(:class="['input-wolox',  { 'input-error': $v.email.$error }]", name='email', v-model='$v.email.$model')
         label(:class="['label', { 'text-error': $v.password.$error }]")
-          | {{ $t("signup.password") }}
+          | {{ $t('signup.password') }}
         input(:class="['input-wolox', { 'input-error': $v.password.$error }]", name='password', type='password', v-model='$v.password.$model')
         button.btn-wolox
-          | {{ $t("signup.signup") }}
+          | {{ $t('signup.signup') }}
       router-link.btn-wolox-outline(to='/login')
-        | {{ $t("signup.login") }}
+        | {{ $t('signup.login') }}
 </template>
 
 <script>

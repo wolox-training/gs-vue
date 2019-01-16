@@ -3,15 +3,15 @@
     dashboard
       form.login-form(@submit.prevent='onSubmit')
         label(:class="['label', { 'text-error': $v.email.$error }]")
-          | {{ $t("login.email") }}
+          | {{ $t('login.email') }}
         input(:class="['input-wolox',  { 'input-error': $v.email.$error }]", name='email', v-model='$v.email.$model')
         label(:class="['label', { 'text-error': $v.password.$error }]")
-          | {{ $t("login.password") }}
+          | {{ $t('login.password') }}
         input(:class="['input-wolox', { 'input-error': $v.password.$error }]", name='password', type='password', v-model='$v.password.$model')
         button.btn-wolox
-          | {{ $t("login.login") }}
+          | {{ $t('login.login') }}
       router-link.btn-wolox-outline(to='/sign-up')
-        | {{ $t("login.signup") }}
+        | {{ $t('login.signup') }}
 </template>
 
 <script>
