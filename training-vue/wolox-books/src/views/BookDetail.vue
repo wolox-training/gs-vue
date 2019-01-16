@@ -11,18 +11,18 @@
       .more-info
         span.m-bottom-2
           span.bold.p-right-1
-            | Book author:
+            | {{ $t("bookDetail.author") }}
           | {{book.author}}
         span.m-bottom-2
           span.bold.p-right-1
-            | Publisher:
+            | {{ $t("bookDetail.publisher") }}
           | {{book.publisher}}
         span
           span.bold.p-right-1
-            | Year of publication:
+            | {{ $t("bookDetail.year") }}
           | {{book.year}}
     span(v-else)
-      | Loading book...
+      | {{ $t("bookDetail.loading") }}
 </template>
 
 <script>
